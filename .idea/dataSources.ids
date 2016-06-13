@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - support@localhost" uuid="efe33f05-2276-4a16-bcf5-8728114c2639">
+    <database-info product="MySQL" version="5.5.47-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="support"/>
+      <table id="2" parent="1" name="comments"/>
+      <table id="3" parent="1" name="customers"/>
+      <table id="4" parent="1" name="projects"/>
+      <table id="5" parent="1" name="ticket_project"/>
+      <table id="6" parent="1" name="tickets"/>
+      <table id="7" parent="1" name="users"/>
+      <table id="8" parent="1" name="website"/>
+      <column id="9" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="10" parent="2" name="parent_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="11" parent="2" name="ticket_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="12" parent="2" name="title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="13" parent="2" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="14" parent="2" name="body">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="15" parent="2" name="file">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="16" parent="2" name="date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="17" parent="2" name="status">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="18" parent="2" name="customer_view">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="19" parent="2" name="pattern_signature">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <index id="20" parent="2" name="parent_id">
+        <columns>parent_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="21" parent="2" name="ticket_id">
+        <columns>ticket_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="22" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="23" parent="2" name="fk_comment_ticket">
+        <columns>ticket_id</columns>
+        <ref-key>~.tickets.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="24" parent="2" name="fk_id_commentId">
+        <columns>parent_id</columns>
+        <ref-key>PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="25" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="26" parent="3" name="project_id">
+        <comment>شماره پروژه</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="27" parent="3" name="telegram_id">
+        <comment>آی دی تلگرام</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="28" parent="3" name="name">
+        <comment>نام و نام خانوادگی</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="29" parent="3" name="email">
+        <comment>ایمیل</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="30" parent="3" name="phone">
+        <comment>شماره همراه</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="31" parent="3" name="username">
+        <comment>نام کاربری</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="32" parent="3" name="password">
+        <comment>رمز عبور</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="33" parent="3" name="date">
+        <comment>تاریخ</comment>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="34" parent="3" name="type_project">
+        <comment>نوع پروژه (شرکتی - تجاری - فروشگاهی و ...(</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="35" parent="3" name="note">
+        <comment>توضیحات</comment>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="36" parent="3" name="company">
+        <comment>شرکت</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="37" parent="3" name="connector">
+        <comment>طرف حساب یا رابط</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="38" parent="3" name="address">
+        <comment>آدرس</comment>
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="39" parent="3" name="date_create">
+        <comment>تاریخ ایجاد مشتری</comment>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="40" parent="3" name="create_by">
+        <comment>نام ایجاد  کننده مشتری</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="41" parent="3" name="project_id">
+        <columns>project_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="42" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="43" parent="3" name="fk_customer_project">
+        <columns>project_id</columns>
+        <ref-key>~.projects.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="44" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="45" parent="4" name="domain_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="46" parent="4" name="project_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="47" parent="4" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="48" parent="4" name="problem_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="49" parent="4" name="description">
+        <data-type>text</data-type>
+      </column>
+      <column id="50" parent="4" name="date_in">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="51" parent="4" name="date_out">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="52" parent="4" name="date_start_support">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="53" parent="4" name="price">
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="54" parent="4" name="date_create">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="55" parent="4" name="create_by">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="56" parent="4" name="domain_id">
+        <columns>domain_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="57" parent="4" name="problem_id">
+        <columns>problem_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="58" parent="4" name="user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="59" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="60" parent="4" name="fk_project_user">
+        <columns>user_id</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="61" parent="4" name="fk_project_website">
+        <columns>domain_id</columns>
+        <ref-key>~.website.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="62" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="63" parent="5" name="project_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="64" parent="5" name="ticket_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="65" parent="5" name="project_id">
+        <columns>project_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="66" parent="5" name="ticket_id">
+        <columns>ticket_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="67" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="68" parent="5" name="fk_projectId_project">
+        <columns>project_id</columns>
+        <ref-key>~.projects.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="69" parent="5" name="fk_ticketId_ticket">
+        <columns>ticket_id</columns>
+        <ref-key>~.tickets.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="70" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="71" parent="6" name="user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="72" parent="6" name="progress">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="73" parent="6" name="title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="74" parent="6" name="description">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="75" parent="6" name="file">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="76" parent="6" name="date_start">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="77" parent="6" name="date_end">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="78" parent="6" name="status">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <index id="79" parent="6" name="user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="80" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="81" parent="6" name="fk_ticket_userId">
+        <columns>user_id</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="82" parent="7" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="83" parent="7" name="name">
+        <comment>نام و نام خانوادگی</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="84" parent="7" name="email">
+        <comment>ایمیل شرکتی</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="85" parent="7" name="username">
+        <comment>نام کاربری</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="86" parent="7" name="password">
+        <comment>رمز عبور</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="87" parent="7" name="post">
+        <comment>سمت</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="88" parent="7" name="idNumber">
+        <comment>شماره پرسنلی</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="89" parent="7" name="role">
+        <comment>سطح دسترسی</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="90" parent="7" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="91" parent="8" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="92" parent="8" name="domain_name">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="93" parent="8" name="domain_url">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="94" parent="8" name="user_panel">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="95" parent="8" name="pass_panel">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="96" parent="8" name="domain_price">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="97" parent="8" name="domain_date_start">
+        <data-type>date</data-type>
+      </column>
+      <column id="98" parent="8" name="domain_date_expired">
+        <data-type>date</data-type>
+      </column>
+      <column id="99" parent="8" name="host_price">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="100" parent="8" name="host_date_start">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+        <default-expression>&apos;0000-00-00&apos;</default-expression>
+      </column>
+      <column id="101" parent="8" name="host_date_expired">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+        <default-expression>&apos;0000-00-00&apos;</default-expression>
+      </column>
+      <column id="102" parent="8" name="name_admin_site">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="103" parent="8" name="phone_admin_site">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="104" parent="8" name="email_admin_site">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="105" parent="8" name="user_social_network">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="106" parent="8" name="pass_social_network">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="107" parent="8" name="user_weblog">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="108" parent="8" name="pass_weblog">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="109" parent="8" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
